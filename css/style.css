@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Product Card Styles */
+.product-card {
+    transition: transform 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Custom Form Styles */
+.color-input, .size-input {
+    margin-bottom: 0.5rem;
+}
+
+/* Table Responsive Fixes */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Modal Customization */
+.modal-header {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.modal-footer {
+    border-top: 2px solid #dee2e6;
+}
+
+/* Admin Dashboard Specific Styles */
+#addProduct .card {
+    border-top: 3px solid #0d6efd;
+}
+
+#products .card {
+    border-top: 3px solid #198754;
+}
+
+#sales .card {
+    border-top: 3px solid #ffc107;
+}
+
+/* Action Buttons Spacing */
+.btn-group .btn {
+    margin-right: 0.25rem;
+}
+
+/* Search Bar Enhancement */
+#modelSearch {
+    border-radius: 0.375rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+}

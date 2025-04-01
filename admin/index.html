@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - نظام إدارة المخزون</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">لوحة التحكم</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarAdmin">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sales">المبيعات</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <!-- Add Product Section -->
+        <section id="addProduct" class="mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">إضافة منتج جديد</h5>
+                    <form id="addProductForm">
+                        <div class="mb-3">
+                            <label for="modelNumber" class="form-label">رقم الموديل</label>
+                            <input type="text" class="form-control" id="modelNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">الألوان المتاحة</label>
+                            <div id="colorsContainer">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control color-input" placeholder="اللون">
+                                    <button type="button" class="btn btn-success add-color">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">القياسات المتاحة</label>
+                            <div id="sizesContainer">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control size-input" placeholder="القياس">
+                                    <button type="button" class="btn btn-success add-size">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">صورة المنتج</label>
+                            <input type="file" class="form-control" id="productImage" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">إضافة المنتج</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Management Section -->
+        <section id="products" class="mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">إدارة المنتجات</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الموديل</th>
+                                    <th>الألوان</th>
+                                    <th>القياسات</th>
+                                    <th>الصورة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be dynamically loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sales Dashboard Section -->
+        <section id="sales" class="mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">لوحة المبيعات</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>رقم الموديل</th>
+                                    <th>اللون</th>
+                                    <th>القياس</th>
+                                    <th>تاريخ البيع</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesTableBody">
+                                <!-- Sales data will be dynamically loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">تعديل المنتج</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <!-- Form fields will be dynamically populated -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const { createClient } = supabase;
+    </script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
